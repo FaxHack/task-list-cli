@@ -14,7 +14,7 @@ Manage your tasks with ease using this command-line tool. Organize, prioritize, 
 - Delete tasks you no longer need.
 
 ## Preview
-- Using Windows Terminal
+- [Using Windows Terminal](https://apps.microsoft.com/detail/windows-terminal/9N0DX20HK701?hl=en-gb&gl=GB)
   
 ![image](https://github.com/FaxHack/task-list-cli/assets/56932944/5eb9b4a0-c586-4784-85f6-6df1b3824b55)
 
@@ -27,10 +27,10 @@ Manage your tasks with ease using this command-line tool. Organize, prioritize, 
 
 ### Installation
 
-1. Clone the repository:
+ Clone the repository:
    ```sh
    git clone https://github.com/yourusername/task-list-cli.git
-
+```
   ### Build the project
 ```sh
 cd task-list-cli
