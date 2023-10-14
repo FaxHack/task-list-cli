@@ -13,6 +13,12 @@ Manage your tasks with ease using this command-line tool. Organize, prioritize, 
 - Filter tasks by completion status.
 - Delete tasks you no longer need.
 
+## Preview
+- Using Windows Terminal
+  
+![image](https://github.com/FaxHack/task-list-cli/assets/56932944/5eb9b4a0-c586-4784-85f6-6df1b3824b55)
+
+
 ## Getting Started
 
 ### Prerequisites
