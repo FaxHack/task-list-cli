@@ -1,0 +1,19 @@
+[package]
+name = "task_list_cli"
+version = "0.2.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+file = "1.1.2"
+clearscreen = "2.0.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = "1.4.1"
+ansi_term = "0.12.1"
+colored = "2.0.4"
+dialoguer = "0.11.0"
+rand = "0.8.5"
+prettytable = "0.10.0"
+
