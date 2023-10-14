@@ -1,7 +1,7 @@
 use colored::*;
 use dialoguer::{theme::ColorfulTheme, Input, Select};
-use prettytable::{Table, Row, Cell};
-use serde::{Serialize, Deserialize};
+use prettytable::{Cell, Row, Table};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs::{File, OpenOptions};
 use std::io;
@@ -18,7 +18,13 @@ struct Task {
 }
 
 impl Task {
-    fn new(description: String, due_date: String, priority: String, completed: bool, id: u32) -> Self {
+    fn new(
+        description: String,
+        due_date: String,
+        priority: String,
+        completed: bool,
+        id: u32,
+    ) -> Self {
         Task {
             description,
             due_date,
@@ -47,10 +53,14 @@ fn filter_tasks_by_status(tasks: &HashMap<String, Task>, completed: bool) -> Has
         .collect()
 }
 
-
 fn main() {
     let mut tasks: HashMap<String, Task> = load_tasks();
-    let mut next_id: u32 = tasks.keys().map(|k| k.parse::<u32>().unwrap_or(0)).max().unwrap_or(0) + 1;
+    let mut next_id: u32 = tasks
+        .keys()
+        .map(|k| k.parse::<u32>().unwrap_or(0))
+        .max()
+        .unwrap_or(0)
+        + 1;
 
     loop {
         println!("{}", "Task List CLI".blue().bold());
@@ -73,18 +83,10 @@ fn main() {
             .unwrap();
 
         match selection {
-            0 => {
-                add_task(&mut tasks, &mut next_id);
-            }
-            1 => {
-                list_tasks(&tasks);
-            }
-            2 => {
-                mark_task_as_done(&mut tasks);
-            }
-            3 => {
-                delete_task(&mut tasks);
-            }
+            0 => add_task(&mut tasks, &mut next_id),
+            1 => list_tasks(&tasks),
+            2 => mark_task_as_done(&mut tasks),
+            3 => delete_task(&mut tasks),
             4 => {
                 tasks = sort_tasks_by_due_date(&tasks);
                 list_tasks(&tasks);
@@ -154,7 +156,11 @@ fn list_tasks(tasks: &HashMap<String, Task>) {
         ]));
 
         for (task_id, task) in tasks.iter() {
-            let status = if task.completed { "Completed".green() } else { "Not Completed".red() };
+            let status = if task.completed {
+                "Completed".green()
+            } else {
+                "Not Completed".red()
+            };
 
             table.add_row(Row::new(vec![
                 Cell::new(task_id),
@@ -241,3 +247,4 @@ fn save_tasks(tasks: &HashMap<String, Task>) {
         println!("Write failed.");
     }
 }
+
