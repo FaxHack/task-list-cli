@@ -29,7 +29,7 @@ Manage your tasks with ease using this command-line tool. Organize, prioritize, 
 
  Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/task-list-cli.git
+   git clone https://github.com/faxhack/task-list-cli.git
 ```
   ### Build the project
 ```sh
